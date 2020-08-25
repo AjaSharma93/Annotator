@@ -1,0 +1,18 @@
+.imgs{
+    height: 100px;
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+p {
+    font-family: oxygen-regular;
+    font-size: 10px;
+    color:#888888;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+

@@ -1,0 +1,25 @@
+/* #demo {
+    width: 460px;
+    height: 250px;
+    background-image: url(https://unsplash.it/3000/2000/?random);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  } */
+
+  #drag-img {
+    cursor: move;
+    position: relative;
+    width: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    max-width: none;
+  }
+
+  #container {
+    overflow: hidden;
+    background: lightgray;
+    height: 400px;
+    width: 60em;
+  }
+  

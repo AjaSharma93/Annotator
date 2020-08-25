@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bulma/bulma.min.css";
+@import '~font-awesome/css/font-awesome.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.nomargin .mat-card-header-text {
+    margin:0;
+}
+
+@font-face {
+    font-family: "oxygen-regular";
+    src: local("oxygen-regular"), url(./assets/fonts/Oxygen/Oxygen-Regular.ttf) format("truetype");
+}
+
+.mat-drawer-content {
+    z-index: inherit !important;
+}
+
+.mat-drawer-container{
+    z-index: inherit !important;
+}

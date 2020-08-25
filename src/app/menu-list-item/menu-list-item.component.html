@@ -1,0 +1,28 @@
+<div (mouseenter)="onItemSelected(item)" (mouseleave)="onItemSelected(item)">
+  <a mat-list-item [ngStyle]="{'padding-left': (depth * 12) + 'px', 'color':'white', 
+        'margin':(item.type== 'list')?'5px':'0px'}" [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 
+        'expanded': expanded, 'heading':(item.type== 'heading')?true:false}">
+    <!-- <mat-icon class="routeIcon">{{item.iconName}}</mat-icon> -->
+    <span *ngIf="item.type == 'heading'">
+      {{item.displayName}}
+    </span>
+    <mat-icon *ngIf="depth>0" style="color:black">chevron_right</mat-icon>
+    <button *ngIf="item.type == 'list'" style="width:200px"
+      [ngClass]="{'btn':(item.type == 'heading')?false:true, 'btn-info':(item.type== 'list')?true:false}">
+      {{item.displayName}}
+      <span fxFlex *ngIf="item.children && item.children.length">
+        <span fxFlex></span>
+        <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'" style="float:right">
+          expand_more
+        </mat-icon>
+      </span>
+    </button>
+
+  </a>
+  <div *ngIf="expanded">
+    <!-- <button *ngFor="let child of item.children" style="width:200px" [ngClass]="{'btn':(item.type == 'heading')?false:true, 'btn-info':(item.type== 'list')?true:false}" mat-menu-item> {{child.displayName}} </button> -->
+
+    <app-menu-list-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
+    </app-menu-list-item>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row" *ngIf="!imageSelected">
+        <app-image-list (onImageSelected)="onImageSelected($event)"></app-image-list>
+    </div>
+    <br>
+    <div class="row" *ngIf="!imageSelected">
+        <app-annotated-image-list></app-annotated-image-list>
+    </div>
+    <div class="row" *ngIf="imageSelected">
+        <app-image-annotator [selectedImage]="selectedImage" (savedAnnotation)="saveAnnotation($event)" (cancelledAnnotation)="cancelAnnotation($event)"></app-image-annotator>
+    </div>
+</div>
+

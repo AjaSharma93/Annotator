@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Annotator</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div id="container" (mouseup)="stop_drag()" (mousemove)="while_drag($event)">
+            <img ondragstart="return false" id="drag-img" src="{{imgSrc}}"
+                [ngStyle]="{'cursor': (moveEnabled==false)?'pointer':'move'}" (mousedown)="start_drag(this, $event)" />
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-5">
+            <div id="markerActivator">
+                <button class="btn btn-success" (click)="showApiMarker()">Mark</button>
+            </div>
+
+            <div id="markerControls" style="display: none;">
+                <button mat-icon-button (click)="addArrow()" matTooltip="Add Arrow">
+                    <mat-icon>
+                        north_west
+                    </mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteMarker()" matTooltip="Delete Marker">
+                    <mat-icon>
+                        delete
+                    </mat-icon>
+                </button>
+                <button mat-icon-button (click)="render()" matTooltip="Render Image">
+                    <mat-icon>
+                        check_circle
+                    </mat-icon>
+                </button>
+                <button mat-icon-button (click)="closeMarkerArea()" matTooltip="Close Marker Area">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <button mat-icon-button (click)="zoom(2/3)" matTooltip="Zoom In">
+                <mat-icon>zoom_out</mat-icon>
+            </button>
+            <button mat-icon-button (click)="zoom(1.5)" matTooltip="Zoom Out">
+                <mat-icon>zoom_in</mat-icon>
+            </button>
+            <button mat-icon-button (click)="toggleMove()"  matTooltip="Toggle Move" [ngStyle]="{'color': (moveEnabled==false)?'black':'red'}">
+                <i class="fa fa-arrows"></i>
+            </button>
+        </div>
+        <div class="col-md-2">
+            <button mat-icon-button (click)="saveAnnotation()" matTooltip="Save">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-icon-button (click)="cancelAnnotation()" matTooltip="Cancel">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

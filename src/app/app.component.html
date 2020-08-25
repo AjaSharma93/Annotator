@@ -1,0 +1,25 @@
+<ng-container>
+  <mat-toolbar class="example-header">
+
+      <div class="col-md-6">
+        Header
+      </div>
+      <div class="col-md-4 offset-md-5">
+        <button class="btn btn-success" (click)="uploadFile()">Upload</button>
+      </div>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-images-viewer></app-images-viewer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <mat-toolbar class="example-footer">Footer</mat-toolbar>
+</ng-container>
+
+<router-outlet></router-outlet>
