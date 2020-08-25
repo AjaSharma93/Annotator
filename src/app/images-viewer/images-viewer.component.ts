@@ -22,7 +22,6 @@ export class ImagesViewerComponent implements OnInit {
   }
 
   saveAnnotation(img){
-    console.log(img);
     this.uploader.uploadAnnotatedFile(img);
     this.selectedImage = null;
     this.imageSelected = false;
@@ -31,6 +30,11 @@ export class ImagesViewerComponent implements OnInit {
   cancelAnnotation(){
     this.selectedImage = null;
     this.imageSelected = false;
+  }
+
+  onAnnotatedImageSelected(img){
+    this.selectedImage = img;
+    this.imageSelected = true;
   }
 
 }

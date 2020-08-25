@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewChild, Input, Output, EventEmitter } fro
 import { MarkerArea, ArrowMarker } from 'markerjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { MarkerAreaState } from 'markerjs/typings/MarkerAreaState';
 
 @Component({
   selector: 'app-image-annotator',
@@ -14,6 +15,7 @@ export class ImageAnnotatorComponent implements OnInit {
   x_img_ele = 0;
   y_img_ele = 0;
   imgSrc: string;
+  imgState: MarkerAreaState;
   markerArea: MarkerArea;
   moveEnabled: boolean;
 
@@ -73,10 +75,11 @@ export class ImageAnnotatorComponent implements OnInit {
   }
   render() {
     if (this.markerArea) {
-      this.markerArea.render((dataUrl) => {
+      this.markerArea.render((dataUrl, state) => {
         const res: any = document.getElementById("drag-img");
         res.src = dataUrl;
         this.imgSrc = dataUrl;
+        this.imgState = state;
         res.style.display = "";
       });
     }
@@ -124,17 +127,21 @@ export class ImageAnnotatorComponent implements OnInit {
   }
 
   saveAnnotation() {
-    if (this.markerArea) {
+    try{
       this.markerArea.close();
-      this.savedAnnotation.emit(this.imgSrc);
+    }catch(e){
+      
     }
+    this.savedAnnotation.emit(this.imgSrc);
   }
 
   cancelAnnotation() {
-    if (this.markerArea) {
+    try{
       this.markerArea.close();
-      this.cancelledAnnotation.emit();
+    }catch(e){
+
     }
+    this.cancelledAnnotation.emit();
   }
 
 }
