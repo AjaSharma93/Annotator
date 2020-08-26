@@ -3,7 +3,7 @@
         <h2>Annotated Images</h2>
     </div>
     <div class="row">
-        <div *ngFor="let file of uploadedFiles; let i=index" class="col-md-6">
+        <div *ngFor="let file of uploadedFiles; let i=index" class="col-md-6" style="padding:5px">
             <mat-card style="width: 20em;">
                 <mat-card-title></mat-card-title>
                 <img mat-card-image class="imgs" src="{{file.imageUrl}}" alt="{{file.fName}}">
