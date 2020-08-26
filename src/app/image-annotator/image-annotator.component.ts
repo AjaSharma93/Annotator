@@ -1,7 +1,5 @@
 import { Component, OnInit, Inject, ViewChild, Input, Output, EventEmitter } from '@angular/core';
-import { MarkerArea, ArrowMarker } from 'markerjs';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { MarkerArea, ArrowMarker, RectMarker } from 'markerjs';
 import { MarkerAreaState } from 'markerjs/typings/MarkerAreaState';
 
 @Component({
@@ -64,6 +62,12 @@ export class ImageAnnotatorComponent implements OnInit {
   addArrow() {
     if (this.markerArea) {
       this.markerArea.addMarker(ArrowMarker);
+    }
+  }
+
+  addRectangle(){
+    if(this.markerArea) {
+      this.markerArea.addMarker(RectMarker);
     }
   }
 
